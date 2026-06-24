@@ -1,0 +1,202 @@
+:root {
+    --bg-dark: #090d16;
+    --card-bg: #131a2a;
+    --accent-blue: #38bdf8;
+    --accent-green: #10b981;
+    --text-primary: #f8fafc;
+    --text-muted: #64748b;
+    --border-color: #1e293b;
+    --radius: 12px;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at bottom left, #1e1b4b, var(--bg-dark));
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.timer-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.status-badge-wrap {
+    margin-bottom: 25px;
+}
+
+.badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+}
+
+.badge.work {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-blue);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.badge.break {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-green);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.timer-circle {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto 30px;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.progress-ring__bar {
+    transition: stroke-dashoffset 0.3s linear;
+    stroke-linecap: round;
+}
+
+.time-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+/* Control Framework */
+.control-grid {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.primary-btn {
+    background: var(--accent-blue);
+    color: #090d16;
+}
+
+.primary-btn:hover {
+    background: #7dd3fc;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.secondary-btn:hover {
+    background: var(--border-color);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.mode-toggles {
+    display: flex;
+    background: #1e293b;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.mode-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.mode-btn.active {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Flexible Inputs Grid Layout */
+.settings-panel {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 25px;
+    background: #1e293b;
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+.input-group {
+    flex: 1;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    border-color: var(--accent-blue);
+}
